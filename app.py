@@ -10,11 +10,10 @@ app.config.from_object(Config)
 
 db.init_app(app)
 
-# Use app.app_context() to initialize the database
+
 with app.app_context():
     db.create_all()
 
-# Routes to handle adding records
 @app.route('/lecturers', methods=['POST'])
 def add_lecturer():
     data = request.get_json()
